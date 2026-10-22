@@ -1,0 +1,38 @@
+
+name: API Monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check API Response Time
+        run: |
+          START=$(date +%s%3N)
+
+          STATUS=$(curl -s -o response.json \
+            -w "%{http_code}" \
+            https://reqres.in/api/users?page=2)
+
+          END=$(date +%s%3N)
+          RESPONSE_TIME=$((END - START))
+
+          echo "HTTP Status: $STATUS"
+          echo "Response Time: ${RESPONSE_TIME}ms"
+
+          if [ "$STATUS" -lt 200 ] || [ "$STATUS" -ge 300 ]; then
+            echo "API request failed"
+            exit 1
+          fi
+
+          if [ "$RESPONSE_TIME" -ge 800 ]; then
+            echo "Response Time condition failed"
+            exit 1
+          fi
+
+          echo "Monitor passed: Response Time < 800ms"
