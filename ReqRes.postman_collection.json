@@ -18,7 +18,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\npm.test(\"Check name and job in response\", function () {\r\n    var jsonData = pm.response.json();\r\n    // Kiểm tra trực tiếp với chuỗi bạn đã nhập ở Body\r\n    pm.expect(jsonData.name).to.eql(\"Huynh Huy\");\r\n    pm.expect(jsonData.job).to.eql(\"QA Lead\");\r\n});\r\n\r\npm.test(\"Extract and set userId\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.environment.set(\"userId\", jsonData.id);\r\n});"
+                  "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\n\r\npm.test(\"Check name and job in response\", function () {\r\n    var jsonData = pm.response.json();\r\n    // Kiểm tra trực tiếp với chuỗi bạn đã nhập ở Body\r\n    pm.expect(jsonData.name).to.eql(\"Huynh Huy\");\r\n    pm.expect(jsonData.job).to.eql(\"QA Lead\");\r\n});\r\n\r\npm.test(\"Extract and set userId\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.environment.set(\"userId\", jsonData.id);\r\n});\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
@@ -67,7 +67,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r\npm.test(\"data.id = 2\", () => pm.expect(pm.response.json().data.id).to.eql(2));\r\npm.test(\"email dung duoi\", () => pm.expect(pm.response.json().data.email).to.include(\"@reqres.in\"));"
+                  "pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r\npm.test(\"data.id = 2\", () => pm.expect(pm.response.json().data.id).to.eql(2));\r\npm.test(\"email dung duoi\", () => pm.expect(pm.response.json().data.email).to.include(\"@reqres.in\"));\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
@@ -104,7 +104,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Kiểm tra Status code là 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Kiểm tra trường updatedAt tồn tại\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.have.property('updatedAt');\r\n});"
+                  "pm.test(\"Kiểm tra Status code là 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Kiểm tra trường updatedAt tồn tại\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.have.property('updatedAt');\r\n});\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
@@ -150,7 +150,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Kiểm tra Status code là 204\", function () {\r\n    pm.response.to.have.status(204);\r\n});"
+                  "pm.test(\"Kiểm tra Status code là 204\", function () {\r\n    pm.response.to.have.status(204);\r\n});\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
@@ -192,7 +192,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Kiểm tra Status code là 400\", function () {\r\n    pm.response.to.have.status(400);\r\n});\r\n\r\npm.test(\"Kiểm tra thông báo lỗi thiếu password\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.error).to.eql(\"Missing password\");\r\n});"
+                  "pm.test(\"Kiểm tra Status code là 400\", function () {\r\n    pm.response.to.have.status(400);\r\n});\r\n\r\npm.test(\"Kiểm tra thông báo lỗi thiếu password\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.error).to.eql(\"Missing password\");\r\n});\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
@@ -237,7 +237,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Kiểm tra Status code là 400\", function () {\r\n    pm.response.to.have.status(400);\r\n});\r\n\r\npm.test(\"Kiểm tra thông báo lỗi thiếu thông tin đăng nhập\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.error).to.eql(\"Missing email or username\");\r\n});"
+                  "pm.test(\"Kiểm tra Status code là 400\", function () {\r\n    pm.response.to.have.status(400);\r\n});\r\n\r\npm.test(\"Kiểm tra thông báo lỗi thiếu thông tin đăng nhập\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.error).to.eql(\"Missing email or username\");\r\n});\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
@@ -282,7 +282,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Kiểm tra Status code là 404\", function () {\r\n    pm.response.to.have.status(404);\r\n});\r\n\r\npm.test(\"Kiểm tra body trả về là object rỗng\", function () {\r\n    var responseText = pm.response.text();\r\n    pm.expect(responseText).to.eql(\"{}\");\r\n});"
+                  "pm.test(\"Kiểm tra Status code là 404\", function () {\r\n    pm.response.to.have.status(404);\r\n});\r\n\r\npm.test(\"Kiểm tra body trả về là object rỗng\", function () {\r\n    var responseText = pm.response.text();\r\n    pm.expect(responseText).to.eql(\"{}\");\r\n});\r\npm.test(\"Response time is below 800ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(800);\r\n});"
                 ]
               }
             }
